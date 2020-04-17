@@ -44,6 +44,7 @@ public class Modelo {
 					contador++;
 				}
 				rs.first();
+				
 				// Poner en los TextField los valores obtenidos del 1º
 				// idEmpleado.setText(Integer.toString(rs.getInt("idEmpleado")));
 				// nombreEmpleado.setText(rs.getString("nombreEmpleado"));
@@ -54,7 +55,7 @@ public class Modelo {
 		
 		public void mostrarDatos(Connection con, int idE, TextField txtIdEmpleadoM,  TextField txtNombreEmpleadoM)
 		{
-			String sql = "SELECT * FROM empresa WHERE idEmpleado = "+idE;
+			String sql = "SELECT * FROM empleados WHERE idEmpleado = "+idE;
 			try 
 			{ 
 				txtIdEmpleadoM.setText(idE+"");
@@ -68,7 +69,6 @@ public class Modelo {
 					String i = rs2.getString("nombreEmpleado");
 					txtNombreEmpleadoM.setText(i);
 				}
-				sta.close();
 			} 
 			catch (SQLException ex) 
 			{
@@ -135,7 +135,7 @@ public class Modelo {
 		public int borrar(Connection con, String borrar2)
 		{
 			int respuesta = 0;
-			String sql = "DELETE FROM empleado WHERE idEmpleado = " + borrar2;
+			String sql = "DELETE FROM empleados WHERE idEmpleado = " + borrar2;
 			System.out.println(sql);
 			try 
 			{
@@ -152,4 +152,26 @@ public class Modelo {
 			}
 			return respuesta;
 		}
+
+		public int borrar2(Connection con, int idEmpleado) {
+			// TODO Auto-generated method stub
+			int respuesta4 = 0;
+			String sql4 = "DELETE FROM empleados WHERE idEmpleado = " + idEmpleado;
+			System.out.println(sql4);
+			try 
+			{
+				// Creamos un STATEMENT para una consulta SQL INSERT.
+				Statement sta = con.createStatement();
+				sta.executeUpdate(sql4);
+				sta.close();
+			} 
+			catch (SQLException ex) 
+			{
+				JOptionPane.showMessageDialog(null, "ERROR:al hacer un Delete"+"\n"+ex);
+				ex.printStackTrace();
+				respuesta4 = 1;
+			}
+			return respuesta4;
+		}
+		
 }

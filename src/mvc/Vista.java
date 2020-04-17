@@ -21,17 +21,24 @@ public class Vista extends Frame {
 	MenuItem mniBorrar = new MenuItem("Borrar");
 	// Elementos del diálogo
 	Dialog dlgDatos = new Dialog(this, "Diálogo con mensaje", true);
+	Dialog dlgDatos2 = new Dialog(this, "Diálogo con mensaje 2", true);
+	Dialog dlgDatos3 = new Dialog(this, "Diálogo con mensaje 3", true);
 	
 	Panel pnlConsulta = new Panel();
 	Panel pnlConsulta1 = new Panel();
 	Panel pnlAlta = new Panel();
 	Panel pnlMod = new Panel();
+	Panel pnlMod1 = new Panel();
 	Panel pnlBorrar = new Panel();
+	Panel pnlBorrar1 = new Panel();
 	
+	Button aceptar = new Button("aceptar");
 	Button btnOperar11 = new Button("");
 	Button btnOperar21 = new Button("");
-	Label lblEmpleadoChC = new Label("Selecciona el empleado:");
-	Choice choEmpleadoC = new Choice();
+	Label lblEmpleadoChB = new Label("Selecciona el empleado:");
+	Choice choEmpleadoB = new Choice();
+	Label lblEmpleadoChM = new Label("Selecciona el empleado:");
+	Choice choEmpleadoM = new Choice();
 	
 	Label lblConsulta = new Label("Consulta de Empleado");
 	Label lblIdEmpleadoC = new Label("Id Empleado");
@@ -79,8 +86,7 @@ public class Vista extends Frame {
 		mnEmpleado.add(mniMod);
 		mnEmpleado.add(mniBorrar);
 		// Montar los paneles
-		pnlConsulta1.add(lblEmpleadoChC);
-		pnlConsulta1.add(choEmpleadoC);
+		
 		
 		pnlConsulta1.add(btnOperar21);
 		pnlConsulta.add(lblConsulta);
@@ -99,12 +105,14 @@ public class Vista extends Frame {
 		pnlAlta.add(btnOperar3);
 		pnlAlta.add(btnOperar4);
 		
+		pnlMod1.add(lblEmpleadoChM);
+		pnlMod1.add(choEmpleadoM);
 		pnlMod.add(lblMod);
 		pnlMod.add(lblIdEmpleadoM);
 		pnlMod.add(txtIdEmpleadoM);
 		pnlMod.add(lblNombreEmpleadoM);
 		pnlMod.add(txtNombreEmpleadoM);
-		pnlMod.add(btnOperar5);
+		pnlMod1.add(btnOperar5);
 		pnlMod.add(btnOperar6);
 		
 		pnlBorrar.add(lblBorrar);
@@ -115,6 +123,11 @@ public class Vista extends Frame {
 		pnlBorrar.add(btnOperar7);
 		pnlBorrar.add(btnOperar8);
 		pnlBorrar.add(btnOperar11);
+		
+		pnlBorrar1.add(lblEmpleadoChB);
+		
+		pnlBorrar1.add(choEmpleadoB);
+		pnlBorrar1.add(btnOperar21);
 		
 		// Establecer el tamaño del Frame
 		setSize(200, 200);
@@ -127,4 +140,17 @@ public class Vista extends Frame {
 		// Mostrar el Frame en pantalla
 		setVisible(true);
 	}
+	public void dialogo(String titulo, String etiqueta) 
+	 {
+		dlgDatos3 = new Dialog(this,titulo, true);
+			Label lblEtiqueta = new Label(etiqueta);
+			dlgDatos3.setLayout(new FlowLayout());
+			dlgDatos3.setSize(420,100);
+			dlgDatos3.add(lblEtiqueta);
+			dlgDatos3.add(aceptar);
+			dlgDatos3.setResizable(false);
+			dlgDatos3.setLocationRelativeTo(null);
+			dlgDatos3.setVisible(true);
+			
+		}
 }
