@@ -81,7 +81,7 @@ public class Vista extends Frame {
 		// Montar los paneles
 		pnlConsulta1.add(lblEmpleadoChC);
 		pnlConsulta1.add(choEmpleadoC);
-		pnlConsulta1.add(btnOperar11);
+		
 		pnlConsulta1.add(btnOperar21);
 		pnlConsulta.add(lblConsulta);
 		pnlConsulta.add(lblIdEmpleadoC);
@@ -114,6 +114,7 @@ public class Vista extends Frame {
 		pnlBorrar.add(txtNombreEmpleadoB);
 		pnlBorrar.add(btnOperar7);
 		pnlBorrar.add(btnOperar8);
+		pnlBorrar.add(btnOperar11);
 		
 		// Establecer el tamaño del Frame
 		setSize(200, 200);

@@ -106,6 +106,7 @@ public class Controlador implements WindowListener, ActionListener
 			// Asigno la etiqueta al botón
 			vista.btnOperar7.setLabel("Atras");
 			vista.btnOperar8.setLabel("Siguiente");
+			vista.btnOperar11.setLabel("Borrar");
 			// Añadimos el panel al Dialog
 			vista.dlgDatos.add(vista.pnlBorrar);
 			try {
@@ -210,8 +211,25 @@ public class Controlador implements WindowListener, ActionListener
 						vista.txtIdEmpleadoB.setText(Integer.toString(modelo.rs.getInt("idEmpleado")));
 						vista.txtNombreEmpleadoB.setText(modelo.rs.getString("nombreEmpleado"));
 				} 
+					
 			} catch (SQLException e) {
 				System.out.println("Error en la sentencia SQL" + e.getMessage());
+			}
+			if (a.equals(vista.btnOperar11)) 
+			{
+				System.out.println("Pulsando boton borrado");
+				Connection con = modelo.conectar(BaseDatos, UsuarioDB, ClaveBD); 
+				// Borrar
+				int respuesta = modelo.borrar(con, vista.txtIdEmpleadoB.getText());
+				// Mostramos resultado
+				if(respuesta == 0)
+				{
+					System.out.println("Borrado de Clinica correcto");
+				}
+				else
+				{
+					System.out.println("Error en Borrado de Clinica");
+				}
 			}
 		}
 		if (a.equals(vista.btnOperar8)) 
@@ -223,8 +241,25 @@ public class Controlador implements WindowListener, ActionListener
 					vista.txtIdEmpleadoB.setText(Integer.toString(modelo.rs.getInt("idEmpleado")));
 					vista.txtNombreEmpleadoB.setText(modelo.rs.getString("nombreEmpleado"));
 				}
+				
 			} catch (SQLException e) {
 				System.out.println("Error en la sentencia SQL" + e.getMessage());
+			}
+			if (a.equals(vista.btnOperar11)) 
+			{
+				System.out.println("Pulsando boton borrado");
+				Connection con = modelo.conectar(BaseDatos, UsuarioDB, ClaveBD); 
+				// Borrar
+				int respuesta = modelo.borrar(con, vista.txtIdEmpleadoB.getText());
+				// Mostramos resultado
+				if(respuesta == 0)
+				{
+					System.out.println("Borrado de Clinica correcto");
+				}
+				else
+				{
+					System.out.println("Error en Borrado de Clinica");
+				}
 			}
 		}
 

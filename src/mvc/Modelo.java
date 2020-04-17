@@ -132,4 +132,24 @@ public class Modelo {
 			}
 			return respuesta;
 		}
+		public int borrar(Connection con, String borrar2)
+		{
+			int respuesta = 0;
+			String sql = "DELETE FROM empleado WHERE idEmpleado = " + borrar2;
+			System.out.println(sql);
+			try 
+			{
+				// Creamos un STATEMENT para una consulta SQL INSERT.
+				Statement sta = con.createStatement();
+				sta.executeUpdate(sql);
+				sta.close();
+			} 
+			catch (SQLException ex) 
+			{
+				JOptionPane.showMessageDialog(null, "ERROR:al hacer un Delete"+"\n"+ex);
+				ex.printStackTrace();
+				respuesta = 1;
+			}
+			return respuesta;
+		}
 }
