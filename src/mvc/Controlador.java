@@ -434,7 +434,7 @@ public class Controlador implements WindowListener, ActionListener
 			// Ocultamos el cuadro de diálogo.
 			vista.dlgDatos.setVisible(false);
 		} 
-		else if (vista.dlgDatos.isActive()) 
+		else if (vista.dlgDatos3.isActive()) 
 		{
 			// Funciones que inician el valor de los componentes del Dialog.
 			// Elimina todos los componentes del Dialog.
